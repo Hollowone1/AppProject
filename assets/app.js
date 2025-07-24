@@ -1,10 +1,35 @@
 import './bootstrap.js';
-/*
- * Welcome to your app's main JavaScript file!
- *
- * This file will be included onto the page via the importmap() Twig function,
- * which should already be in your base.html.twig.
- */
+
 import './styles/app.css';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+import { registerVueControllerComponents } from '@symfony/ux-vue';
+
+registerVueControllerComponents(require.context('./vue/controllers', true, /\.vue$/));
+
+document.addEventListener('vue:before-mount', (event) => {
+    const {
+        app,
+        router: VueRouter
+    } = event.detail;
+
+
+    const vueRouter = VueRouter.createRouter({
+        history: VueRouter.createWebHashHistory(),
+        routes: [
+            {path: '/home',
+             component: () => import('./vue/Home.vue')
+            },
+            {
+                path: '/about',
+                component: () => import('./vue/About.vue')
+            },
+            {
+                path: '/contact',
+                component: () => import('./vue/Contact.vue')
+            },
+        ],
+    });
+
+    app.use(vueRouter);
+});
+
