@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}S'inscrire{% endblock %}
 
 {% block body %}
     {% form_theme registrationForm 'tailwind_2_layout.html.twig' %}
@@ -9,45 +9,45 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1 class="text-2xl font-bold text-center py-4">Register</h1>
+    <h1 class="text-6xl font-bold text-center py-6 ">S'inscrire</h1>
 
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
 
-    <div class="mb-3 bg-emerald-500 p-4 rounded w-96 m-auto">
-        <div class="mb-3 bg-emerald-50 p-4 rounded w-80 m-auto font-bold text-center">
+    <div class="mb-3 bg-emerald-500 p-4 w-96 m-auto rounded-lg">
+        <div class="mb-3 bg-emerald-50 p-4 rounded-lg w-80 m-auto font-bold text-center">
             {{ form_row(registrationForm.email, {
                 label: 'adresse email',
                 attr: { class: 'form-control' }
             }) }}
         </div>
-        <div class="mb-3 bg-emerald-50 p-4 rounded w-80 m-auto font-bold text-center">
+        <div class="mb-3 bg-emerald-50 p-4 rounded-lg w-80 m-auto font-bold text-center">
             {{ form_row(registrationForm.username, {
                 label: 'Nom d\'utilisateur',
                 attr: { class: 'form-control' }
             } ) }}
         </div>
-        <div class="mb-3 bg-emerald-50 p-4 rounded w-80 m-auto font-bold text-center">
+        <div class="mb-3 bg-emerald-50 p-4 rounded-lg w-80 m-auto font-bold text-center">
             {{ form_row(registrationForm.city, {
                 label: 'Ville',
                 attr: { class: 'form-control' }
             } ) }}
         </div>
-        <div class="mb-3 bg-emerald-50 p-4 rounded w-80 m-auto font-bold text-center">
+        <div class="mb-3 bg-emerald-50 p-4 rounded-lg w-80 m-auto font-bold text-center">
             {{ form_row(registrationForm.birthday, {
                 label: 'Date de naissance',
                 attr: { class: 'form-control' }
             } ) }}
         </div>
-        <div class="mb-3 bg-emerald-50 p-4 rounded w-80 m-auto font-bold text-center">
+        <div class="mb-3 bg-emerald-50 p-4 rounded-lg w-80 m-auto font-bold text-center">
             {{ form_row(registrationForm.phoneNumber, {
                 label: 'Numéro de téléphone',
                 attr: { class: 'form-control' }
             } ) }}
         </div>
 
-        <div class="mb-3 bg-emerald-50 p-4 rounded w-80 m-auto font-bold text-center">
+        <div class="mb-3 bg-emerald-50 p-4 rounded-lg w-80 m-auto font-bold text-center">
             {{ form_row(registrationForm.plainPassword, {
                 label: 'Mot de passe',
                 attr: { class: 'form-control' }
